@@ -1,0 +1,5 @@
+group derpmap
+    FSharp.Core
+    FSharp.Data.LiteralProviders
+    Thoth.Json.Net
+    FsHttp
