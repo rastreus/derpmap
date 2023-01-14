@@ -5,7 +5,7 @@ open FsHttp
 open Model
 open Thoth
 
-let [<Literal>] Default = TextFile<"derpmap.json">.Text
+let [<Literal>] Default = TextFile<"../default.json">.Text
 let url = """https://login.tailscale.com/derpmap/default"""
 let csv = """derpmap.csv"""
 
@@ -31,7 +31,16 @@ let tryGetDerpmap () : Derpmap option =
             Default
             |> decodeDerpmap
 
-let parseDerpmap (derpmap : Derpmap) : string list =
+let getDefaultDerpmap () : Derpmap =
+    Default
+    |> decodeDerpmap
+    |> function
+        | Some derpmap ->
+            derpmap
+        | None ->
+            failwith "Failed to decode default derpmap."
+
+let parseDerpmap (derpmap : Derpmap) : string =
     derpmap.Regions
     |> Map.values
     |> Seq.map (fun region ->
@@ -41,10 +50,10 @@ let parseDerpmap (derpmap : Derpmap) : string list =
         )
     )
     |> Seq.concat
-    |> Seq.toList
+    |> Seq.fold (fun acc line -> acc + line + System.Environment.NewLine) System.String.Empty
 
-let writeCsv (lines : string list) : unit =
-    System.IO.File.WriteAllLines(csv, lines)
+let writeCsv (s : string) : unit =
+    System.IO.File.WriteAllText(csv, s)
 
 [<EntryPoint>]
 let main _ =

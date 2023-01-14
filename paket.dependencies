@@ -1,12 +1,21 @@
 version 7.1.5
 source https://www.nuget.org/api/v2
 
-group derpmap
+group src
     source https://api.nuget.org/v3/index.json
     framework: net6.0
     storage: none
 
-    nuget FSharp.Core = 6.0.6
+    nuget FSharp.Core = 6.0.7
     nuget FSharp.Data.LiteralProviders = 1.0.3
-    nuget Thoth.Json.Net = 8.0.0
-    nuget FsHttp = 9.1.2
+    nuget Thoth.Json.Net = 10.0.0
+    nuget FsHttp = 10.0.0
+
+group test
+    source https://api.nuget.org/v3/index.json
+    framework: net6.0
+    storage: none
+
+    nuget FSharp.Core = 6.0.7
+    nuget FSharp.Data.LiteralProviders = 1.0.3
+    nuget Expecto = 9.0.4

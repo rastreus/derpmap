@@ -5,10 +5,11 @@
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="derpmap.json" />
+    <None Include="paket.reference" />
+    <None Include="../default.json" />
     <Compile Include="Model.fs" />
     <Compile Include="Thoth.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
-  <Import Project=".paket\Paket.Restore.targets" />
+  <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>

@@ -7,6 +7,7 @@ A simple exercise in F# to get json, decode it and then create a CSV file.
 * [FSharp.Data.LiteralProviders](https://github.com/tarmil/FSharp.Data.LiteralProviders)
 * [Thoth.Json.Net](https://thoth-org.github.io/Thoth.Json/#.Net-and-NetCore-support)
 * [FsHttp](https://fsprojects.github.io/FsHttp/)
+* [Expecto](https://github.com/haf/expecto)
 
 ## Install pre-requisites
 
@@ -18,6 +19,16 @@ A simple exercise in F# to get json, decode it and then create a CSV file.
 
 2. `dotnet paket install`
 
-3. `dotnet build derpmap.fsproj`
+3. `dotnet build src/src.fsproj`
 
-4. `dotnet run --project derpmap.fsproj`
+4. `dotnet run --project src/src.fsproj`
+
+## Build and test
+
+1. `dotnet tool restore`
+
+2. `dotnet paket install`
+
+3. `dotnet build test/test.fsproj`
+
+4. `dotnet run --project test/test.fsproj`

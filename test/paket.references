@@ -1,0 +1,4 @@
+group test
+    FSharp.Core
+    FSharp.Data.LiteralProviders
+    Expecto

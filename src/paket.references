@@ -1,4 +1,4 @@
-group derpmap
+group src
     FSharp.Core
     FSharp.Data.LiteralProviders
     Thoth.Json.Net
